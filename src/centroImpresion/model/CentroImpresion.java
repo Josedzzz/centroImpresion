@@ -23,10 +23,10 @@ public class CentroImpresion {
 		this.codigo = codigo;
 
 		//Agrego datos para probar
-		Documento documento1 = new Documento("1230", "Ejemplo1", EstadoDocumento.ENCOLA, 0, "texto1");
+		/*Documento documento1 = new Documento("1230", "Ejemplo1", EstadoDocumento.ENCOLA, 0, "texto1");
 		Documento documento2 = new Documento("1231", "Ejemplo2", EstadoDocumento.ENCOLA, 5, "texto2");
 		getListaDocumentos().add(documento2);
-		getListaDocumentos().add(documento1);
+		getListaDocumentos().add(documento1);*/
 
 		Impresora impresora1 = new Impresora("1234", EstadoImpresora.ACTIVO, "C4ASD", "Lg");
 		Impresora impresora2 = new Impresora("4312", EstadoImpresora.INACTIVO, "C4DSA", "Hp");

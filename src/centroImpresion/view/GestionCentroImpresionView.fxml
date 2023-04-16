@@ -25,12 +25,12 @@
                                     <TextField fx:id="txtTituloDocumento" layoutX="63.0" layoutY="74.0" prefHeight="25.0" prefWidth="387.0" />
                                     <Label layoutX="10.0" layoutY="113.0" text="Prioridad:" />
                                     <TextField fx:id="txtPrioridadDocumento" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="387.0" />
-                                    <Label layoutX="19.0" layoutY="150.0" text="Texto:" />
-                                    <TextField fx:id="txtTextoDocumento" layoutX="63.0" layoutY="146.0" prefHeight="27.0" prefWidth="386.0" />
                                     <Separator layoutY="183.0" prefHeight="2.0" prefWidth="467.0" />
                                     <Button fx:id="btnNuevoDocumento" layoutX="45.0" layoutY="196.0" mnemonicParsing="false" onAction="#nuevoDocumento" prefHeight="25.0" prefWidth="90.0" text="Nuevo" />
                                     <Button fx:id="btnActualizarDocumento" layoutX="186.0" layoutY="196.0" mnemonicParsing="false" onAction="#actualizarDocumento" prefHeight="25.0" prefWidth="90.0" text="Actualizar" />
                                     <Button fx:id="btnAgregarDocumento" layoutX="321.0" layoutY="196.0" mnemonicParsing="false" onAction="#agregarDocumento" prefHeight="25.0" prefWidth="90.0" text="Agregar" />
+                                    <Button fx:id="btnSeleccionarArchivo" layoutX="14.0" layoutY="144.0" mnemonicParsing="false" onAction="#seleccionarArchivo" prefHeight="25.0" prefWidth="135.0" text="SeleccionarArchivo" />
+                                    <Label fx:id="labArchivo" layoutX="172.0" layoutY="148.0" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="463.0">

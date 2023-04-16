@@ -6,7 +6,7 @@ public class Documento implements Comparable<Documento>{
 	private String titulo;
 	private EstadoDocumento estadoDocumento;
 	private int prioridad;
-	private String texto;
+	private String texto; //Se comporta como la dirección del documento
 
 	public Documento(String codigoDocumento, String titulo, EstadoDocumento estadoDocumento, int prioridad, String texto) {
 		super();

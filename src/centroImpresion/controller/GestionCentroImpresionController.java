@@ -1,5 +1,7 @@
 package centroImpresion.controller;
 
+
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,11 +19,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class GestionCentroImpresionController implements Initializable {
 
@@ -39,9 +44,6 @@ public class GestionCentroImpresionController implements Initializable {
 
     @FXML
     private TextField txtTituloDocumento;
-
-    @FXML
-    private TextField txtTextoDocumento;
 
     @FXML
     private Button btnActualizarDocumento;
@@ -112,6 +114,12 @@ public class GestionCentroImpresionController implements Initializable {
     @FXML
     private Button btnImprimirDoc;
 
+    @FXML
+    private Button btnSeleccionarArchivo;
+
+    @FXML
+    private Label labArchivo;
+
 
     //Creamos una variable aplicacion para comunicarme con la aplicacion y me pase datos de la empresa
 	private Aplicacion aplicacion;
@@ -130,6 +138,7 @@ public class GestionCentroImpresionController implements Initializable {
 
 	//Creo el Impresora seleccion para cuando le den click en la imp de una tabla
 	private Impresora impresoraSeleccion;
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -165,6 +174,20 @@ public class GestionCentroImpresionController implements Initializable {
 	}
 
 	/**
+	 * Para seleccionar unicamente los archivos txt
+	 * @param event
+	 */
+    @FXML
+    void seleccionarArchivo(ActionEvent event) {
+    	FileChooser fc = new FileChooser();
+    	fc.getExtensionFilters().add(new ExtensionFilter("Txt File", "*.txt"));
+    	File f = fc.showOpenDialog(null);
+    	if(f != null) {
+    		labArchivo.setText(f.getAbsolutePath());
+    	}
+    }
+
+	/**
 	 * Muestra los datos del documento seleccionado en el table view
 	 */
 	private void mostrarInformacionDocumento() {
@@ -172,7 +195,7 @@ public class GestionCentroImpresionController implements Initializable {
 	    	txtCodigoDocumento.setText(documentoSeleccion.getCodigoDocumento());
 	    	txtTituloDocumento.setText(documentoSeleccion.getTitulo());
 	    	txtPrioridadDocumento.setText(String.valueOf(documentoSeleccion.getPrioridad()));
-	    	txtTextoDocumento.setText(documentoSeleccion.getTexto());
+	    	labArchivo.setText(documentoSeleccion.getTexto());
 	    	//Deshabilito este textField
 	    	txtCodigoDocumento.setDisable(true);
 		}
@@ -188,7 +211,7 @@ public class GestionCentroImpresionController implements Initializable {
     	txtCodigoDocumento.setText("Ingrese el código del documento");
     	txtTituloDocumento.setText("Ingrese el titulo del documento");
     	txtPrioridadDocumento.setText("");
-    	txtTextoDocumento.setText("Ingrese el texto del documento");
+    	labArchivo.setText("");
     	//Habilito este textField
     	txtCodigoDocumento.setDisable(false);
     }
@@ -202,7 +225,7 @@ public class GestionCentroImpresionController implements Initializable {
     	String codigo = txtCodigoDocumento.getText();
     	String titulo = txtTituloDocumento.getText();
     	int prioridad = Integer.parseInt(txtPrioridadDocumento.getText());
-    	String texto = txtTextoDocumento.getText();
+    	String texto = labArchivo.getText();
 
     	if(documentoSeleccion != null) {
     	   	if(datosValidos(codigo, titulo, prioridad, texto)) {
@@ -232,7 +255,7 @@ public class GestionCentroImpresionController implements Initializable {
     	String codigo = txtCodigoDocumento.getText();
     	String titulo = txtTituloDocumento.getText();
     	int prioridad = Integer.parseInt(txtPrioridadDocumento.getText());
-    	String texto = txtTextoDocumento.getText();
+    	String texto = labArchivo.getText();
 
     	if(datosValidos(codigo, titulo, prioridad, texto)) {
     		crearDocumento(codigo, titulo, prioridad, texto);
@@ -259,7 +282,7 @@ public class GestionCentroImpresionController implements Initializable {
 			notificacion += "La prioridad es invalida\n";
 		}
 		if(texto == null || texto.equals("")) {
-			notificacion += "El texto es invalido\n";
+			notificacion += "La direccion es invalida\n";
 		}
 
 		if(notificacion.equals("")) {
@@ -288,7 +311,7 @@ public class GestionCentroImpresionController implements Initializable {
     		tableViewDocumentos.getItems().clear(); //Limpio la lista
     		tableViewDocumentos.setItems(getDocumentos()); //Agrego los datos a la lista
     		mostrarMensaje("Notificación documento", "Documento registrado", "El documento " +
-    				titulo + "ha sido registrado", AlertType.INFORMATION);
+    				titulo + " ha sido registrado", AlertType.INFORMATION);
 
     	} else {
        		mostrarMensaje("Notificación documento", "Documento no registrado", "El documento " +
@@ -384,7 +407,7 @@ public class GestionCentroImpresionController implements Initializable {
     			tableViewImpresoras.setItems(getImpresoras()); //Agrego los datos a la lista
     			//Muestro el mensaje al usuario
         		mostrarMensaje("Notificación Impresora", "Impresora actualizada", "La impresora " +
-        				nombreImpresora + "ha sido actualizada", AlertType.INFORMATION);
+        				nombreImpresora + " ha sido actualizada", AlertType.INFORMATION);
     		}
     	} else {
 			mostrarMensaje("Impresora Seleccion", "Impresora Seleccion", "No se ha seleccionado ninguna impresora",
