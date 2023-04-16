@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="centroImpresion.controller.GestionCentroImpresionController">
+   <children>
+      <TabPane layoutX="6.0" layoutY="42.0" prefHeight="536.0" prefWidth="487.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Documentos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="481.0" prefWidth="487.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="10.0" layoutY="9.0" orientation="VERTICAL" prefHeight="477.0" prefWidth="465.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="229.0" prefWidth="463.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Información del Documento:" />
+                                    <Separator layoutX="-3.0" layoutY="34.0" prefHeight="0.0" prefWidth="467.0" />
+                                    <Label layoutX="14.0" layoutY="44.0" text="Codigo:" />
+                                    <TextField fx:id="txtCodigoDocumento" layoutX="63.0" layoutY="40.0" prefHeight="25.0" prefWidth="386.0" />
+                                    <Label layoutX="19.0" layoutY="78.0" text="Titulo:" />
+                                    <TextField fx:id="txtTituloDocumento" layoutX="63.0" layoutY="74.0" prefHeight="25.0" prefWidth="387.0" />
+                                    <Label layoutX="10.0" layoutY="113.0" text="Prioridad:" />
+                                    <TextField fx:id="txtPrioridadDocumento" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="387.0" />
+                                    <Label layoutX="19.0" layoutY="150.0" text="Texto:" />
+                                    <TextField fx:id="txtTextoDocumento" layoutX="63.0" layoutY="146.0" prefHeight="27.0" prefWidth="386.0" />
+                                    <Separator layoutY="183.0" prefHeight="2.0" prefWidth="467.0" />
+                                    <Button fx:id="btnNuevoDocumento" layoutX="45.0" layoutY="196.0" mnemonicParsing="false" onAction="#nuevoDocumento" prefHeight="25.0" prefWidth="90.0" text="Nuevo" />
+                                    <Button fx:id="btnActualizarDocumento" layoutX="186.0" layoutY="196.0" mnemonicParsing="false" onAction="#actualizarDocumento" prefHeight="25.0" prefWidth="90.0" text="Actualizar" />
+                                    <Button fx:id="btnAgregarDocumento" layoutX="321.0" layoutY="196.0" mnemonicParsing="false" onAction="#agregarDocumento" prefHeight="25.0" prefWidth="90.0" text="Agregar" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="463.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Listado de Documentos:" />
+                                    <Separator layoutX="-2.0" layoutY="37.0" prefHeight="0.0" prefWidth="467.0" />
+                                    <TableView fx:id="tableViewDocumentos" layoutX="-1.0" layoutY="37.0" prefHeight="152.0" prefWidth="464.0">
+                                      <columns>
+                                        <TableColumn fx:id="columnCodigoDocumento" prefWidth="75.0" text="Codigo" />
+                                        <TableColumn fx:id="columnTituloDocumento" prefWidth="75.0" text="Titulo" />
+                                          <TableColumn fx:id="columnPrioridadDocumento" prefWidth="75.0" text="Prioridad" />
+                                          <TableColumn fx:id="columnEstadoDocumento" prefWidth="75.0" text="Estado" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="btnEliminarDocumento" layoutX="180.0" layoutY="193.0" mnemonicParsing="false" onAction="#eliminarDocumento" prefHeight="27.0" prefWidth="103.0" text="Eliminar" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Impresoras">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="10.0" layoutY="12.0" orientation="VERTICAL" prefHeight="483.0" prefWidth="470.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="238.0" prefWidth="468.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Información de las impresoras:" />
+                                    <Separator layoutY="36.0" prefHeight="0.0" prefWidth="469.0" />
+                                    <Label layoutX="15.0" layoutY="51.0" text="Código:" />
+                                    <TextField fx:id="txtCodigoImpresora" layoutX="66.0" layoutY="47.0" prefHeight="25.0" prefWidth="388.0" />
+                                    <Label layoutX="13.0" layoutY="82.0" text="Nombre:" />
+                                    <TextField fx:id="txtNombreImpresora" layoutX="66.0" layoutY="78.0" prefHeight="25.0" prefWidth="388.0" />
+                                    <Label layoutX="14.0" layoutY="114.0" text="Marca:" />
+                                    <TextField fx:id="txtMarcaImpresora" layoutX="67.0" layoutY="110.0" prefHeight="25.0" prefWidth="387.0" />
+                                    <Label layoutX="13.0" layoutY="145.0" text="Estado:" />
+                                    <ComboBox fx:id="comboBoxEstadoImpresora" layoutX="67.0" layoutY="141.0" prefWidth="150.0" />
+                                    <Button fx:id="btnNuevaImpresora" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" onAction="#nuevaImpresora" prefHeight="25.0" prefWidth="95.0" text="Nuevo" />
+                                    <Button fx:id="btnActualizarImpresora" layoutX="187.0" layoutY="200.0" mnemonicParsing="false" onAction="#actualizarImpresora" prefHeight="25.0" prefWidth="95.0" text="Actualizar" />
+                                    <Button fx:id="btnAgregarImpresora" layoutX="307.0" layoutY="200.0" mnemonicParsing="false" onAction="#agregarImpresora" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
+                                    <Separator layoutY="186.0" prefHeight="0.0" prefWidth="470.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Lista de Impresoras" />
+                                    <Separator layoutY="33.0" prefHeight="0.0" prefWidth="469.0" />
+                                    <TableView fx:id="tableViewImpresoras" layoutY="31.0" prefHeight="160.0" prefWidth="469.0">
+                                      <columns>
+                                        <TableColumn fx:id="columnCodigoImpresora" prefWidth="75.0" text="Código" />
+                                        <TableColumn fx:id="columnNombreImpresora" prefWidth="75.0" text="Nombre" />
+                                          <TableColumn fx:id="columMarcaImpresora" prefWidth="75.0" text="Marca" />
+                                          <TableColumn fx:id="columnEstadoImpresora" prefWidth="75.0" text="Estado" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="btnEliminarImpresora" layoutX="70.0" layoutY="198.0" mnemonicParsing="false" onAction="#eliminarImpresora" prefHeight="25.0" prefWidth="95.0" text="Eliminar" />
+                                    <Button fx:id="btnImprimirDoc" layoutX="301.0" layoutY="198.0" mnemonicParsing="false" onAction="#imprimirDocumento" prefHeight="25.0" prefWidth="95.0" text="Imprimir Doc" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="174.0" layoutY="14.0" prefHeight="27.0" prefWidth="152.0" text="Gestión Centro Impresión" />
+   </children>
+</AnchorPane>

@@ -2,12 +2,14 @@ package centroImpresion.model;
 
 public class Impresora {
 
+	private String codigoImpresora; //Es la marca diferenciadora de las impresoras
 	private EstadoImpresora estadoImpresora;
 	private String nombre;
 	private String marca;
 
-	public Impresora(EstadoImpresora estadoImpresora, String nombre, String marca) {
+	public Impresora(String codigoImpresora, EstadoImpresora estadoImpresora, String nombre, String marca) {
 		super();
+		this.codigoImpresora = codigoImpresora;
 		this.estadoImpresora = estadoImpresora;
 		this.nombre = nombre;
 		this.marca = marca;
@@ -15,6 +17,14 @@ public class Impresora {
 
 	public Impresora() {
 
+	}
+
+	public String getCodigoImpresora() {
+		return codigoImpresora;
+	}
+
+	public void setCodigoImpresora(String codigoImpresora) {
+		this.codigoImpresora = codigoImpresora;
 	}
 
 	public EstadoImpresora getEstadoImpresora() {
@@ -43,11 +53,19 @@ public class Impresora {
 
 
 //-----------------------------------------------------------------------------------------------------------
-	public void imprimirDocumento(Documento documento) {
-		// TODO Auto-generated method stub
-
+	/**
+	 * devuelve el titulo del documento
+	 * @param documento
+	 * @return
+	 */
+	public String imprimirDocumento(Documento documento) {
+		return documento.getTitulo();
 	}
 
+	/**
+	 * me dice si una impresora esta activa o no
+	 * @return
+	 */
 	public boolean isActiva() {
 		return getEstadoImpresora().equals(EstadoImpresora.ACTIVO);
 	}

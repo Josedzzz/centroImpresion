@@ -2,13 +2,15 @@ package centroImpresion.model;
 
 public class Documento implements Comparable<Documento>{
 
+	private String codigoDocumento; //Es la marca diferenciadora los documentos
 	private String titulo;
 	private EstadoDocumento estadoDocumento;
 	private int prioridad;
 	private String texto;
 
-	public Documento(String titulo, EstadoDocumento estadoDocumento, int prioridad, String texto) {
+	public Documento(String codigoDocumento, String titulo, EstadoDocumento estadoDocumento, int prioridad, String texto) {
 		super();
+		this.codigoDocumento = codigoDocumento;
 		this.titulo = titulo;
 		this.estadoDocumento = estadoDocumento;
 		this.prioridad = prioridad;
@@ -17,6 +19,14 @@ public class Documento implements Comparable<Documento>{
 
 	public Documento() {
 
+	}
+
+	public String getCodigoDocumento() {
+		return codigoDocumento;
+	}
+
+	public void setCodigoDocumento(String codigoDocumento) {
+		this.codigoDocumento = codigoDocumento;
 	}
 
 	public String getTitulo() {
